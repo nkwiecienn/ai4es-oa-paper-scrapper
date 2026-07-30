@@ -1,7 +1,0 @@
-.vscode
-paper_pipeline_data/*
-notebooks/paper_pipeline_data/*
-__pycache__
-*.json
-# Local Netlify folder
-.netlify
