@@ -1,42 +1,37 @@
-import { useEffect, useState } from "react";
+import ProjectDescription from "./components/ProjectDescription";
+import CardContainer from "./layout/CardContainer";
+import ScreenSection from "./layout/ScreenSection";
 
 function App() {
-  const [health, setHealth] = useState(null);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:8000/api/health")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setHealth(data);
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
-  }, []);
-
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">
-        Frontend → Backend Test
-      </h1>
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+      <ScreenSection
+        heading="Project Overview"
+        subheading="Scraping Open-Access Research Papers"
+      >
+        <CardContainer>
+          <ProjectDescription />
+        </CardContainer>
+      </ScreenSection>
 
-      {health && (
-        <pre className="bg-gray-100 p-4 rounded">
-          {JSON.stringify(health, null, 2)}
-        </pre>
-      )}
+      <ScreenSection
+        id="data-extraction"
+        heading="Data Extraction"
+        subheading="Parse sections, tables, and metadata into clean structured outputs."
+      >
+        <CardContainer>
+          Page 2
+        </CardContainer>
+      </ScreenSection>
 
-      {error && (
-        <p className="text-red-600">
-          Error: {error}
-        </p>
-      )}
+      <ScreenSection
+        heading="Review Workflow"
+        subheading="Track study quality and keep reproducible records for your review."
+      >
+        <CardContainer>
+          Page 3
+        </CardContainer>
+      </ScreenSection>
     </div>
   );
 }
