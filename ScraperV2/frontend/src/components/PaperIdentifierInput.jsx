@@ -7,6 +7,8 @@ import {
   Alert,
 } from '@mui/material';
 
+import { secondaryActionClassName } from '../styles/actionClasses';
+
 const DOI_REGEX = /^10\.\d{4,9}\/[-._;()/:A-Z0-9]+$/i;
 const ARXIV_REGEX = /^(?:arxiv:)?(?:\d{4}\.\d{4,5}(?:v\d+)?|[a-z\-]+(?:\.[A-Z]{2})?\/\d{7}(?:v\d+)?)$/i;
 const PUBMED_REGEX = /^(?:pmid:)?\d+$/i;
@@ -57,9 +59,6 @@ const parseIdentifiers = (input) => {
   }));
 };
 
-const secondaryActionClassName =
-  'inline-flex items-center justify-center rounded border border-white/15 bg-background/20 px-5 py-3 text-sm font-semibold text-on-surface transition-transform duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-background/30 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface_container disabled:pointer-events-none disabled:opacity-60';
-
 export const PaperIdentifierInput = ({
   onIdentifiersChange,
   onDoisChange,
@@ -85,7 +84,11 @@ export const PaperIdentifierInput = ({
     }
 
     if (onDoisChange) {
-      onDoisChange(items.map((item) => item.value));
+      onDoisChange(
+        items
+          .filter((item) => item.type === 'DOI')
+          .map((item) => item.value)
+      );
     }
   };
 

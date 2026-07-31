@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { primaryActionClassName } from '../styles/actionClasses';
+
 export default function ProjectDescription() {
 	return (
     <div className="flex h-full flex-col text-start text-on-surface-variant">
@@ -40,7 +42,7 @@ export default function ProjectDescription() {
       <div className="mt-auto flex justify-end pt-8">
         <a
           href="#data-extraction"
-          className="inline-flex items-center rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface_container"
+          className={primaryActionClassName}
         >
           Get Started
         </a>

@@ -8,20 +8,19 @@ import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 
 import { PaperIdentifierInput } from '../components/PaperIdentifierInput';
+import {
+  primaryActionClassName,
+  secondaryActionClassName,
+} from '../styles/actionClasses';
+import { stepperPanelClassName } from '../styles/layoutClasses';
 
 const steps = ['Identifiers', 'Fetch sources', 'Review outputs'];
-
-const primaryActionClassName =
-  'inline-flex items-center justify-center rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface_container disabled:pointer-events-none disabled:opacity-60';
-
-const secondaryActionClassName =
-  'inline-flex items-center justify-center rounded border border-white/15 bg-background/20 px-5 py-3 text-sm font-semibold text-on-surface transition-transform duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-background/30 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface_container disabled:pointer-events-none disabled:opacity-60';
 
 function EmptyStepPanel() {
   return (
     <div
       aria-hidden="true"
-      className="min-h-72 rounded-2xl border border-dashed border-white/10 bg-background/20"
+      className={stepperPanelClassName}
     />
   );
 }
@@ -69,7 +68,7 @@ export default function PaperExtractionStepper() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, width: '100%' }}>
-      <Box className="min-h-72 rounded-2xl border border-dashed border-white/10 bg-background/20"
+      <Box className={stepperPanelClassName}
         sx={{
           px: { xs: 2.5, sm: 3 },
           py: { xs: 2.5, sm: 3 }

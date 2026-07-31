@@ -1,0 +1,5 @@
+export const primaryActionClassName =
+  'inline-flex items-center justify-center rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface_container disabled:pointer-events-none disabled:opacity-60';
+
+export const secondaryActionClassName =
+  'inline-flex items-center justify-center rounded border border-white/15 bg-background/20 px-5 py-3 text-sm font-semibold text-on-surface transition-transform duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-background/30 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface_container disabled:pointer-events-none disabled:opacity-60';
