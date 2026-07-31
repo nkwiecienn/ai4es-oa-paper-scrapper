@@ -1,5 +1,6 @@
 import ProjectDescription from "./components/ProjectDescription";
 import CardContainer from "./layout/CardContainer";
+import PaperExtractionStepper from "./layout/Stepper";
 import ScreenSection from "./layout/ScreenSection";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         subheading="Parse sections, tables, and metadata into clean structured outputs."
       >
         <CardContainer>
-          Page 2
+          <PaperExtractionStepper />
         </CardContainer>
       </ScreenSection>
 
