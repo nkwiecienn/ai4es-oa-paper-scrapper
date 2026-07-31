@@ -16,21 +16,22 @@ function App() {
       </ScreenSection>
 
       <ScreenSection
-        id="data-extraction"
-        heading="Data Extraction"
-        subheading="Parse sections, tables, and metadata into clean structured outputs."
+        heading="Search papers"
+        subheading="Search for papers with keywords, then select papers to extract."
       >
         <CardContainer>
-          <PaperExtractionStepper />
+          Page 2
         </CardContainer>
       </ScreenSection>
 
+
       <ScreenSection
-        heading="Review Workflow"
-        subheading="Track study quality and keep reproducible records for your review."
+        id="data-extraction"
+        heading="Data Extraction"
+        subheading="Parse papers to extract sections, tables, and metadata into clean structured outputs."
       >
         <CardContainer>
-          Page 3
+          <PaperExtractionStepper />
         </CardContainer>
       </ScreenSection>
     </div>
