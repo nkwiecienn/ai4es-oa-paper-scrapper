@@ -1,38 +1,43 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 
 function App() {
-  const [backendMessage, setBackendMessage] = useState("Checking backend...");
-  const [error, setError] = useState(null);
+  const [health, setHealth] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:8000/api/health")
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Backend returned HTTP ${response.status}`);
+          throw new Error(`HTTP ${response.status}`);
         }
-
         return response.json();
       })
       .then((data) => {
-        setBackendMessage(data.message);
+        setHealth(data);
       })
-      .catch((requestError) => {
-        setError(requestError.message);
+      .catch((err) => {
+        setError(err.message);
       });
   }, []);
 
   return (
-    <main>
-      <h1>OpenAccessPaperScrapper</h1>
-      <p>React frontend is running.</p>
+    <div className="p-8">
+      <h1 className="text-3xl font-bold mb-4">
+        Frontend → Backend Test
+      </h1>
 
-      {error ? (
-        <p>Backend error: {error}</p>
-      ) : (
-        <p>Backend response: {backendMessage}</p>
+      {health && (
+        <pre className="bg-gray-100 p-4 rounded">
+          {JSON.stringify(health, null, 2)}
+        </pre>
       )}
-    </main>
+
+      {error && (
+        <p className="text-red-600">
+          Error: {error}
+        </p>
+      )}
+    </div>
   );
 }
 
